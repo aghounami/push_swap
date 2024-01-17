@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:21:22 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/17 12:32:27 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:27:19 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <libc.h>
-# include "./libft/libft.h"
+# include "./libfft/libft.h"
 
 typedef struct t_list
 {
