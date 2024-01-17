@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "pushswap.h": "c",
+        "libft.h": "c",
+        "unistd.h": "c",
+        "stdlib.h": "c",
+        "libc.h": "c",
+        "__locale": "c"
+    }
+}
