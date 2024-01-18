@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:21:22 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/17 13:27:19 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/19 00:11:21 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 # include <libc.h>
 # include "./libfft/libft.h"
 
-typedef struct t_list
+typedef struct z_list
 {
 	int				content;
 	int				index;
-	int				target;
-	struct t_list	*next;
+	int				mouve;
+	int				cost;
+	int				above_median;
+	struct z_list	*target_node;
+	struct z_list	*next;
 }	z_list;
 
 
@@ -45,10 +48,15 @@ void	push_a_to_b(z_list **stack_a, z_list **stack_b);
 void	push_algo(z_list **stack_a, z_list **stack_b);
 void	algo_swap(z_list **stack_a, z_list **stack_b);
 int		med(z_list *stack);
-void	b_target(z_list *stack_a, z_list *stack_b);
-int		find_target(z_list *stack_a, int b);
-void	findex(z_list **stack);
+void 	b_target(z_list **stack_a, z_list **stack_b);
+void	findex(z_list *stack);
 void	printstack(z_list **stack);
 void	push_b_to_a(z_list **stack_b, z_list **stack_a);
+void	find_target(z_list **stack_a, z_list *stack_b);
+// void	cheapest(z_list *stack, int m, int size);
+void	cost(z_list **stacka, z_list **stackb);
+z_list	*next_step(z_list **stack_b);
+void	top(z_list **stack_a);
+void	push_top(z_list **stacka, z_list **stackb, z_list *cheapest);
 
 #endif

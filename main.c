@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:20:22 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/17 13:04:45 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:34:55 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,46 @@ int main(int argc, char **argv)
 		// printf("stack a:\n");
 		// sort_3(&stack_a);
 		// findex(&stack_a);
+		// printf("stack b:\n");
+		// printstack(&stack_b);
+		// printf("-----------\n");
+		// b_target(stack_a, stack_b);
 		// rotate_a(&stack_a);
-		printf("stack b:\n");
-		printstack(&stack_b);
-		printf("-----------\n");
 		printf("stack a:\n");
 		printstack(&stack_a);
-		while (stack_b)
-		{
-			printf("%d\n", stack_b->target);
-			stack_b = stack_b->next;
-		}
+		printf("-----------\n");
+		printstack(&stack_b);
+		printf("-----------\n");
+		// rev_rotate_a(&stack_a);
+		// printstack(&stack_b);
+		// fun(stack_b);
+		// fun(stack_a);
+		// printf("%d\n", medieum(stack_b));
+		// while (stack_b)
+		// {
+		// 	printf("%d\n", stack_b->mouve);
+		// 	stack_b = stack_b->next;
+		// }
+		// printf("-----------\n");
+		// while (stack_b)
+		// {
+		// 	printf("%d\n", stack_b->target_node->mouve);
+		// 	stack_b = stack_b->next;
+		// }
+		// printf("-----------\n");
+		// while (stack_a)
+		// {
+		// 	printf("%d\n", stack_a->mouve);
+		// 	stack_a = stack_a->next;
+		// }
+		// printf("-----------\n");
+		// while (stack_b)
+		// {
+		// 	printf("%d\n", stack_b->mouve);
+		// 	stack_b = stack_b->next;
+		// }
 	}
 	leak(stack_a);
+	// leak(stack_b);
 	exit(0);
 }

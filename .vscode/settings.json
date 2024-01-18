@@ -5,6 +5,7 @@
         "unistd.h": "c",
         "stdlib.h": "c",
         "libc.h": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "chrono": "c"
     }
 }
