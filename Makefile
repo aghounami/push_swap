@@ -1,10 +1,10 @@
 NAME = push_swap
 NAME2 = ./libfft/libft.a
-CFLAGS = -Wall -Wextra -fsanitize=address
+CFLAGS = -Wall -Wextra
 CC = cc
 LIBC = ar rcs
 
-src = main.c list.c check.c sort.c push.c algo.c utils.c
+src = main.c list.c check.c sort.c push.c algo.c utils.c target.c medien.c
 obj = $(src:.c=.o)
 
 all: comp_start $(NAME)

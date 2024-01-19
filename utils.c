@@ -6,81 +6,99 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:54 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 00:14:44 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:07:39 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void find_target(z_list **stack_a, z_list *stack_b)
+void	findex(t_swap *stack)
 {
-    int target = INT_MIN;
-    z_list *stack__a = *stack_a;
-    while (stack__a)
-    {
-        if (stack__a->content > stack_b->content)
-        {
-            if (target == INT_MIN || stack__a->content < target)
-            {
-                stack_b->target_node = stack__a;
-                target = stack__a->content;
-            }
-        }
-        stack__a = stack__a->next;
-    }
-    if (target == INT_MIN)
-    {
-        target = INT_MAX;
-        z_list *stacka = *stack_a;
-        while (stacka)
-        {
-            if (stacka->content < target)
-            {
-                stack_b->target_node = stacka;
-                target = stacka->content;
-            }
-            stacka = stacka->next;
-        }
-    }
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = flstsize(stack) / 2;
+	while (stack)
+	{
+		(stack)->index = i;
+		if (i <= median)
+			stack->above_median = 1;
+		else
+			stack->above_median = 0;
+		i++;
+		(stack) = (stack)->next;
+	}
 }
 
-void b_target(z_list **stack_a, z_list **stack_b)
+int	check_if_sorted(t_swap **stacka)
 {
-    z_list *lisbt = *stack_b;
-    while (lisbt)
-    {
-        find_target(stack_a, lisbt);
-        printf("Target : %d | for %d\n", lisbt->target_node->content, lisbt->content);
-        lisbt = lisbt->next;
-    }
+	t_swap	*stack;
+
+	stack = *stacka;
+	while (stack && stack->next)
+	{
+		if (stack->content > stack->next->content)
+			return (0);
+		else
+			stack = stack->next;
+	}
+	return (1);
 }
 
-void findex(z_list *stack)
+t_swap	*cheapst_move(t_swap **stack_b)
 {
-    int i = 0;
-    int median;
-    
-    if (!stack)
-        return ;
-    median = flstsize(stack) / 2;
-    while (stack)
-    {
-        (stack)->index = i;
-        if (i <= median)
-            stack->above_median = 1;
-        else
-            stack->above_median = 0;
-        i++;
-        (stack) = (stack)->next;
-    }
+	int		cos;
+	t_swap	*temp;
+	t_swap	*cheapest;
+
+	temp = *stack_b;
+	cos = INT_MAX;
+	while (temp)
+	{
+		if (temp->mouve < cos)
+		{
+			cos = temp->mouve;
+			cheapest = temp;
+		}
+		temp = temp->next;
+	}
+	return (cheapest);
 }
 
-void printstack(z_list **stack)
+void	cost(t_swap **stacka, t_swap **stackb)
 {
-    z_list *print = *stack;
-    while (print)
-    {
-        printf("%d\n", print->content);
-        print = print->next;
-    }
+	int		size_a;
+	int		size_b;
+	t_swap	*stack;
+
+	size_a = flstsize(*stacka);
+	size_b = flstsize(*stackb);
+	stack = *stackb;
+	while (stack)
+	{
+		if (stack->above_median)
+			stack->mouve = stack->index;
+		else
+			stack->mouve = size_b - stack->index;
+		if (stack->target_node->above_median)
+			stack->mouve += stack->target_node->index;
+		else
+			stack->mouve += size_a - stack->target_node->index;
+		stack = stack->next;
+	}
+}
+
+void	printstack(t_swap **stack)
+{
+	t_swap	*print;
+
+	print = *stack;
+	while (print)
+	{
+		printf("%d\n", print->content);
+		print = print->next;
+	}
 }

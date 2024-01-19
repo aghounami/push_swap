@@ -6,18 +6,17 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 22:38:02 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/16 22:53:16 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:06:27 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-
-z_list	*listnew(int content)
+t_swap	*listnew(int content)
 {
-	z_list	*new;
+	t_swap	*new;
 
-	new = (z_list *)malloc(sizeof(z_list));
+	new = (t_swap *)malloc(sizeof(t_swap));
 	if (new == NULL)
 		return (NULL);
 	new->content = content;
@@ -25,7 +24,7 @@ z_list	*listnew(int content)
 	return (new);
 }
 
-z_list	*listlast(z_list *lst)
+t_swap	*listlast(t_swap *lst)
 {
 	if (lst)
 	{
@@ -39,9 +38,9 @@ z_list	*listlast(z_list *lst)
 	return (lst);
 }
 
-void	listadd_back(z_list **lst, z_list *new)
+void	listadd_back(t_swap **lst, t_swap *new)
 {
-	z_list	*last;
+	t_swap	*last;
 
 	if (!lst || !new)
 		return ;
@@ -52,7 +51,7 @@ void	listadd_back(z_list **lst, z_list *new)
 		*lst = new;
 }
 
-int	flstsize(z_list *lst)
+int	flstsize(t_swap *lst)
 {
 	size_t	i;
 
@@ -65,7 +64,7 @@ int	flstsize(z_list *lst)
 	return (i);
 }
 
-void	flstadd_front(z_list **lst, z_list *new)
+void	flstadd_front(t_swap **lst, t_swap *new)
 {
 	if (lst == NULL || new == NULL)
 		return ;

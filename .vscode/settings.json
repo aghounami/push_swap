@@ -6,6 +6,7 @@
         "stdlib.h": "c",
         "libc.h": "c",
         "__locale": "c",
-        "chrono": "c"
+        "chrono": "c",
+        "get_next_line.h": "c"
     }
 }

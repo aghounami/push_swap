@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:53:21 by aghounam          #+#    #+#             */
-/*   Updated: 2023/11/19 13:00:32 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:09:32 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f || !del)
 		return (NULL);
-	first = NULL; 
+	first = NULL;
 	while (lst)
 	{
 		new = ft_lstnew(NULL);

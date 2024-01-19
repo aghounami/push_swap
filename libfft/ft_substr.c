@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:49:02 by aghounam          #+#    #+#             */
-/*   Updated: 2023/11/22 10:31:43 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:09:51 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	char	*sub;
 
 	if (!s)
-		return (NULL); 
+		return (NULL);
 	str = (char *)s;
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
