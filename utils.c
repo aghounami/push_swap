@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:54 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 21:07:39 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:01:08 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	cost(t_swap **stacka, t_swap **stackb)
 	stack = *stackb;
 	while (stack)
 	{
+		stack->mouve = 0;
 		if (stack->above_median)
 			stack->mouve = stack->index;
 		else
@@ -91,14 +92,3 @@ void	cost(t_swap **stacka, t_swap **stackb)
 	}
 }
 
-void	printstack(t_swap **stack)
-{
-	t_swap	*print;
-
-	print = *stack;
-	while (print)
-	{
-		printf("%d\n", print->content);
-		print = print->next;
-	}
-}

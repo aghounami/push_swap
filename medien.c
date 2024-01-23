@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:19:32 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 21:06:47 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:09:45 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,42 @@ int	medien(t_swap *head)
 		current = current->next;
 	}
 	sum = max + min;
-	return (sum);
+	return (sum / 2);
 }
 
-int	mini_medien(t_swap *head)
+t_swap	*mini_medien(t_swap *head)
 {
 	int		min;
 	t_swap	*current;
+	t_swap	*min_node;
 
 	if (!head || !head)
 		return (0);
-	min = (head)->content;
 	current = head;
-	while (current->next)
+	min = INT_MAX;
+	while (current)
 	{
-		if (current->next->content < min)
-			min = current->next->content;
+		if (current->content < min)
+		{
+			min = current->content;
+			min_node = current;
+		}
 		current = current->next;
 	}
-	return (min);
+	return (min_node);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i] != '\0')
+		{
+			write(fd, &s[i] ,1);
+			i++;
+		}
+	}
 }

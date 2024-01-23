@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   spliiit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 14:29:18 by aghounam          #+#    #+#             */
-/*   Updated: 2023/11/16 10:50:15 by aghounam         ###   ########.fr       */
+/*   Created: 2024/01/20 15:59:40 by aghounam          #+#    #+#             */
+/*   Updated: 2024/01/20 16:43:00 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
 static int	count_words(const char *s, char c)
 {
@@ -35,7 +35,7 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static int	ft_len(char const *s, char c)
+static int	ft_lent(char const *s, char c)
 {
 	int	i;
 
@@ -74,7 +74,7 @@ static char	**ft_cpy(char **str, char const *s, char c)
 			i++;
 		if (s[i] == '\0')
 			break ;
-		len = ft_len(s + i, c);
+		len = ft_lent(s + i, c);
 		str[j] = ft_substr(s, i, len);
 		if (str[j] == NULL)
 		{

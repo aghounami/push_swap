@@ -6,23 +6,58 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:43:02 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 21:07:12 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:13:35 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	swap_a(t_swap *stack)
+void	swap_a(t_swap *stack, int flag)
 {
 	int	tmp;
 
-	tmp = stack->content;
-	stack->content = stack->next->content;
-	stack->next->content = tmp;
-	printf("sa\n");
+	if (stack->next)
+	{
+		tmp = stack->content;
+		stack->content = stack->next->content;
+		stack->next->content = tmp;
+		if (flag == 1)
+			write(1, "sa\n", 3);
+	}
 }
 
-void	rotate_a(t_swap **stack)
+void	swap_b(t_swap *stack, int flag)
+{
+	int	tmp;
+
+	if (stack->next)
+	{
+		tmp = stack->content;
+		stack->content = stack->next->content;
+		stack->next->content = tmp;
+		if (flag == 1)
+			write(1, "sb\n", 3);
+	}
+}
+
+void	ss(t_swap *stacka, t_swap *stackb, int flag)
+{
+	int	tmp;
+
+	if (stacka && stacka->next && stackb && stackb->next)
+	{
+		tmp = stacka->content;
+		stacka->content = stacka->next->content;
+		stacka->next->content = tmp;
+		tmp = stackb->content;
+		stackb->content = stackb->next->content;
+		stackb->next->content = tmp;
+		if (flag == 1)
+			write(1, "ss\n", 3);
+	}
+}
+
+void	rotate_a(t_swap **stack, int flag)
 {
 	t_swap	*first_node;
 	t_swap	*last_node;
@@ -36,11 +71,12 @@ void	rotate_a(t_swap **stack)
 			last_node = last_node->next;
 		first_node->next = NULL;
 		last_node->next = first_node;
-		printf("ra\n");
+		if (flag == 1)
+			write(1, "ra\n", 3);
 	}
 }
 
-void	rotate_b(t_swap **stack)
+void	rotate_b(t_swap **stack, int flag)
 {
 	t_swap	*first_node;
 	t_swap	*last_node;
@@ -54,42 +90,7 @@ void	rotate_b(t_swap **stack)
 			last_node = last_node->next;
 		first_node->next = NULL;
 		last_node->next = first_node;
-		printf("rb\n");
-	}
-}
-
-void	rev_rotate_a(t_swap **stack)
-{
-	t_swap	*second_last;
-	t_swap	*new_head;
-
-	if (stack && *stack && (*stack)->next)
-	{
-		second_last = *stack;
-		while (second_last->next->next)
-			second_last = second_last->next;
-		new_head = second_last->next;
-		second_last->next = NULL;
-		new_head->next = *stack;
-		*stack = new_head;
-		printf("rra\n");
-	}
-}
-
-void	rev_rotate_b(t_swap **stack)
-{
-	t_swap	*second_last;
-	t_swap	*new_head;
-
-	if (stack && *stack && (*stack)->next)
-	{
-		second_last = *stack;
-		while (second_last->next->next)
-			second_last = second_last->next;
-		new_head = second_last->next;
-		second_last->next = NULL;
-		new_head->next = *stack;
-		*stack = new_head;
-		printf("rrb\n");
+		if (flag == 1)
+			write(1, "rb\n", 3);
 	}
 }

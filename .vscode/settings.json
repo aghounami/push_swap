@@ -7,6 +7,10 @@
         "libc.h": "c",
         "__locale": "c",
         "chrono": "c",
-        "get_next_line.h": "c"
+        "get_next_line.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "vector": "c"
     }
 }

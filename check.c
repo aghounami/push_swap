@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:28:17 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 21:06:16 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:10:54 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ long	fatoi(const char *str)
 			sign = -1;
 		i++;
 		if (!ft_isdigit(str[i]))
-			errormsg("Error");
+			message_exit("Error\n");
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -37,7 +37,7 @@ long	fatoi(const char *str)
 		i++;
 	}
 	if (str[i] == '-' || str[i] == '+')
-		errormsg("Error");
+		message_exit("Error\n");
 	return (result * sign);
 }
 
@@ -53,20 +53,21 @@ void	duplicate(t_swap *stack)
 		while (runner != NULL)
 		{
 			if (runner->content == tmp)
-				errormsg("Error");
+				errormsg("Error\n", stack);
 			runner = runner->next;
 		}
 		stack = stack->next;
 	}
 }
 
-void	errormsg(char *s)
+void	errormsg(char *s, t_swap *stack)
 {
-	fprintf(stderr, "%s\n", s);
+	ft_putstr_fd(s, 2);
+	ft_free(stack);
 	exit(1);
 }
 
-void	leak(t_swap *list)
+void	ft_free(t_swap *list)
 {
 	t_swap	*next;
 

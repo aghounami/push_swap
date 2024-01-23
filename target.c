@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:32:34 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/19 22:05:48 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:47:05 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,27 @@ void	b_target(t_swap **stack_a, t_swap **stack_b)
 	{
 		find_target(stack_a, node_b);
 		node_b = node_b->next;
+	}
+}
+
+void	index_value(t_swap *stacka)
+{
+	t_swap	*current_node;
+	t_swap	*compare_node;
+	int		index;
+
+	current_node = stacka;
+	while (current_node != NULL)
+	{
+		compare_node = stacka;
+		index = 0;
+		while (compare_node != NULL)
+		{
+			if (current_node->content > compare_node->content)
+				index++;
+			compare_node = compare_node->next;
+		}
+		current_node->index_value = index;
+		current_node = current_node->next;
 	}
 }
