@@ -13,11 +13,11 @@
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include <stdio.h>
+
 # include <stdlib.h>
 # include <unistd.h>
-# include <libc.h>
-# include "./nextline/get_next_line.h"
+# include <limits.h>
+# include "./utils_bonus/get_next_line.h"
 
 typedef struct s_swap
 {

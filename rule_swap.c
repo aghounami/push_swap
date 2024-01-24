@@ -44,7 +44,7 @@ void	stack_arg(char **str, t_swap **stack_a)
 	{
 		content = fatoi(str[i]);
 		if (content > INT_MAX || content < INT_MIN)
-			return ;
+			message_exit("Error");
 		if (!head)
 			head = listnew(content);
 		else

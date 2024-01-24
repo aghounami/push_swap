@@ -12,29 +12,39 @@
 
 #include "pushswap.h"
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while(s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return(s1[i] - s2[i]);
+}
+
 void	so_rt(char *split, t_swap **stack_a, t_swap **stack_b)
 {
-	if (strcmp(split, "sa") == 0)
+	if (ft_strcmp(split, "sa") == 0)
 		swap_a(*stack_a, 0);
-	else if (strcmp(split, "sb") == 0)
+	else if (ft_strcmp(split, "sb") == 0)
 		swap_b(*stack_b, 0);
-	else if (strcmp(split, "ss") == 0)
+	else if (ft_strcmp(split, "ss") == 0)
 		ss(*stack_a, *stack_b, 0);
-	else if (strcmp(split, "ra") == 0)
+	else if (ft_strcmp(split, "ra") == 0)
 		rotate_a(stack_a, 0);
-	else if (strcmp(split, "rb") == 0)
+	else if (ft_strcmp(split, "rb") == 0)
 		rotate_b(stack_b, 0);
-	else if (strcmp(split, "rr") == 0)
+	else if (ft_strcmp(split, "rr") == 0)
 		rr(stack_a, stack_b, 0);
-	else if (strcmp(split, "rra") == 0)
+	else if (ft_strcmp(split, "rra") == 0)
 		rev_rotate_a(stack_a, 0);
-	else if (strcmp(split, "rrb") == 0)
+	else if (ft_strcmp(split, "rrb") == 0)
 		rev_rotate_b(stack_b, 0);
-	else if (strcmp(split, "rrr") == 0)
+	else if (ft_strcmp(split, "rrr") == 0)
 		rrr(stack_a, stack_b, 0);
-	else if (strcmp(split, "pa") == 0)
+	else if (ft_strcmp(split, "pa") == 0)
 		push_b_to_a(stack_b, stack_a, 0);
-	else if (strcmp(split, "pb") == 0)
+	else if (ft_strcmp(split, "pb") == 0)
 		push_a_to_b(stack_a, stack_b, 0);
 	else
 		errormsg("Error\n", *stack_a);
@@ -42,17 +52,17 @@ void	so_rt(char *split, t_swap **stack_a, t_swap **stack_b)
 
 int	check_line(char *str)
 {
-	if (strcmp(str, "sa\n") == 0
-		|| strcmp(str, "sb\n") == 0
-		|| strcmp(str, "ss\n") == 0
-		|| strcmp(str, "ra\n") == 0
-		|| strcmp(str, "rb\n") == 0
-		|| strcmp(str, "rr\n") == 0
-		|| strcmp(str, "rra\n") == 0
-		|| strcmp(str, "rrb\n") == 0
-		|| strcmp(str, "rrr\n") == 0
-		|| strcmp(str, "pa\n") == 0
-		|| strcmp(str, "pb\n") == 0)
+	if (ft_strcmp(str, "sa\n") == 0
+		|| ft_strcmp(str, "sb\n") == 0
+		|| ft_strcmp(str, "ss\n") == 0
+		|| ft_strcmp(str, "ra\n") == 0
+		|| ft_strcmp(str, "rb\n") == 0
+		|| ft_strcmp(str, "rr\n") == 0
+		|| ft_strcmp(str, "rra\n") == 0
+		|| ft_strcmp(str, "rrb\n") == 0
+		|| ft_strcmp(str, "rrr\n") == 0
+		|| ft_strcmp(str, "pa\n") == 0
+		|| ft_strcmp(str, "pb\n") == 0)
 		return (1);
 	else
 		message_exit("Error\n");
@@ -95,7 +105,7 @@ void	checker(t_swap **stack_a, t_swap **stack_b)
 	while (line != NULL)
 	{
 		check_line(line);
-		str = ft_strjoin(str, line);
+		str = f_strjoin(str, line);
 		free(line);
 		line = get_next_line(0);
 	}

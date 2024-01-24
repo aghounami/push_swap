@@ -11,6 +11,9 @@
         "array": "c",
         "string": "c",
         "string_view": "c",
-        "vector": "c"
+        "vector": "c",
+        "fcntl.h": "c",
+        "limits.h": "c",
+        "*.ds_store": "c"
     }
 }
