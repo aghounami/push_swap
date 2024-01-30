@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:54 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/23 18:01:08 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:29:41 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ void	cost(t_swap **stacka, t_swap **stackb)
 		stack = stack->next;
 	}
 }
-

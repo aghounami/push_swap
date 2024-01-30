@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:19:32 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/23 18:09:45 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:28:50 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_putstr_fd(char *s, int fd)
 	{
 		while (s[i] != '\0')
 		{
-			write(fd, &s[i] ,1);
+			write(fd, &s[i], 1);
 			i++;
 		}
 	}

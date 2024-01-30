@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:25:49 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/23 18:12:30 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:33:02 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while(s1[i] && s2[i] && s1[i] == s2[i])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	return(s1[i] - s2[i]);
+	return (s1[i] - s2[i]);
 }
 
 void	so_rt(char *split, t_swap **stack_a, t_swap **stack_b)
@@ -110,6 +110,8 @@ void	checker(t_swap **stack_a, t_swap **stack_b)
 		line = get_next_line(0);
 	}
 	split = ft_split(str, '\n');
+	if (!split)
+		exit (1);
 	next_check(stack_a, stack_b, split);
 	exit(0);
 }

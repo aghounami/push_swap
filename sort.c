@@ -6,7 +6,7 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:43:02 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/22 20:13:35 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:04:08 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	swap_a(t_swap *stack, int flag)
 {
 	int	tmp;
 
-	if (stack->next)
+	if (stack && stack->next)
 	{
 		tmp = stack->content;
 		stack->content = stack->next->content;
@@ -30,7 +30,7 @@ void	swap_b(t_swap *stack, int flag)
 {
 	int	tmp;
 
-	if (stack->next)
+	if (stack && stack->next)
 	{
 		tmp = stack->content;
 		stack->content = stack->next->content;

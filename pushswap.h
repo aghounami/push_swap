@@ -6,17 +6,14 @@
 /*   By: aghounam <aghounam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 22:21:22 by aghounam          #+#    #+#             */
-/*   Updated: 2024/01/23 18:05:52 by aghounam         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:25:59 by aghounam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-
-# include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 # include "./utils_bonus/get_next_line.h"
 
 typedef struct s_swap
